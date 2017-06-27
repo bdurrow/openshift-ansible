@@ -9,7 +9,7 @@
 %global __requires_exclude ^/usr/bin/ansible-playbook$
 
 Name:           openshift-ansible
-Version:        3.5.82
+Version:        3.5.88
 Release:        1%{?dist}
 Summary:        Openshift and Atomic Enterprise Ansible
 License:        ASL 2.0
@@ -271,6 +271,45 @@ Atomic OpenShift Utilities includes
 
 
 %changelog
+* Mon Jun 26 2017 Scott Dodson <sdodson@redhat.com> 3.5.88-1
+- Ensure that host pki tree is mounted in containerized components
+  (sdodson@redhat.com)
+- Add mtu setting to /etc/sysconfig/docker-network (sdodson@redhat.com)
+- bug 1463046. Ensure only one ES pod per PV (jcantril@redhat.com)
+
+* Fri Jun 23 2017 Scott Dodson <sdodson@redhat.com> 3.5.87-1
+- Fix parsing certs with very large serial numbers (tbielawa@redhat.com)
+
+* Fri Jun 23 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.5.86-1
+- 
+
+* Fri Jun 23 2017 Scott Dodson <sdodson@redhat.com> 3.5.85-1
+- Sync CFME templates to v1.5 (sdodson@redhat.com)
+- Use oo_version_gte_3_6+ for future versions and treat 1.x origin as legacy.
+  Add tests. (abutcher@redhat.com)
+- Add oo_version_gte_X_X_or_Y_Y version comparison filters.
+  (abutcher@redhat.com)
+- Update all masters with metricsPublicURL #4488 (per.carlson@vegvesen.no)
+- Verify matched openshift_upgrade_nodes_label (rteague@redhat.com)
+- Separate etcd and OpenShift CA redeploy playbooks. (abutcher@redhat.com)
+
+* Tue Jun 20 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.5.84-1
+- Localhost TMP Dir Fix (vincent.schwarzer@yahoo.de)
+- Guard check for container install based on openshift dictionary key
+  (ayoung@redhat.com)
+- Switching commands for modules during upgrade of router and registry.
+  (kwoodson@redhat.com)
+- Use local openshift.master.loopback_url when generating initial master
+  loopback kubeconfigs. (abutcher@redhat.com)
+- oo_filters: Disable pylint too-many-lines test (jarrpa@redhat.com)
+- oo_collect: Allow list elements to be lists of dict (jarrpa@redhat.com)
+- oo_collect: Update comments to show source of failure (jarrpa@redhat.com)
+
+* Thu Jun 15 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.5.83-1
+- Disable negative caching, set cache TTL to 1s (skuznets@redhat.com)
+- Import the ansible encoding utils (tbielawa@redhat.com)
+- Prevent line wrap in yaml dump of IDP, fixes #3912 (rikkuness@gmail.com)
+
 * Tue Jun 13 2017 Scott Dodson <sdodson@redhat.com> 3.5.82-1
 - Skip service restarts within ca redeployment playbook when expired
   certificates are detected. (abutcher@redhat.com)
