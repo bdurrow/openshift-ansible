@@ -9,7 +9,7 @@
 %global __requires_exclude ^/usr/bin/ansible-playbook$
 
 Name:           openshift-ansible
-Version:        3.5.88
+Version:        3.5.93
 Release:        1%{?dist}
 Summary:        Openshift and Atomic Enterprise Ansible
 License:        ASL 2.0
@@ -271,6 +271,37 @@ Atomic OpenShift Utilities includes
 
 
 %changelog
+* Fri Jun 30 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.5.93-1
+- Correct version comparisons to ensure proper evaluation (rteague@redhat.com)
+
+* Thu Jun 29 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.5.92-1
+- Adding become: false for local_action (ewolinet@redhat.com)
+
+* Wed Jun 28 2017 Scott Dodson <sdodson@redhat.com> 3.5.91-1
+- Update example inventory files to mention certificate validity parameters.
+  (vsemushi@redhat.com)
+- openshift_hosted: add openshift_hosted_registry_cert_expire_days parameter.
+  (vsemushi@redhat.com)
+- oc_adm_ca_server_cert.py: re-generate. (vsemushi@redhat.com)
+- oc_adm_ca_server_cert: add expire_days parameter. (vsemushi@redhat.com)
+- openshift_ca: add openshift_ca_cert_expire_days and
+  openshift_master_cert_expire_days parameters. (vsemushi@redhat.com)
+- redeploy-certificates/registry.yml: add
+  openshift_hosted_registry_cert_expire_days parameter. (vsemushi@redhat.com)
+- openshift_master_certificates: add openshift_master_cert_expire_days
+  parameter. (vsemushi@redhat.com)
+- openshift_node_certificates: add openshift_node_cert_expire_days parameter.
+  (vsemushi@redhat.com)
+- evalute groups when running etcd upgrade from byo/openshift-
+  cluster/upgrades/upgrade_etcd.yml (jchaloup@redhat.com)
+
+* Tue Jun 27 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.5.90-1
+- 
+
+* Tue Jun 27 2017 Scott Dodson <sdodson@redhat.com> 3.5.89-1
+- Generate loopback kubeconfig separately to preserve OpenShift CA certificate.
+  (abutcher@redhat.com)
+
 * Mon Jun 26 2017 Scott Dodson <sdodson@redhat.com> 3.5.88-1
 - Ensure that host pki tree is mounted in containerized components
   (sdodson@redhat.com)
